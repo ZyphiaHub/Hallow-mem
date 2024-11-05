@@ -1,0 +1,42 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.card {
+    background-color: #333;
+    border: 2px solid #666;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* A kártya tartalma a kártyán belül maradjon */
+}
+
+.card img {
+    max-height: 200px;
+    width: auto; /* Arányos szélesség */
+    max-width: 100%; /* Alkalmazkodik a kártya szélességéhez */
+    border-radius: 10px;
+}
+
+.card.flipped {
+    background-color: #fff;
+}
+
+.card.matched {
+    opacity: 0.5;
+}
