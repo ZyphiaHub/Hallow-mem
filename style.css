@@ -41,6 +41,7 @@ body {
     justify-content: center;
     overflow: hidden; /* A kártya tartalma a kártyán belül maradjon */
     width: 100px;
+    height: 150px; /* Fix magasság, hogy ne essen össze, mikor üres a sor*/
 }
 
 .card img {
