@@ -1,21 +1,37 @@
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #222;
+    background: linear-gradient(110deg, #792707, #4f0e77, #222); /* 135 fokos narancs-fekete átmenet */
     color: #fff;
     text-align: center;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .game-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 10px;
     margin: 20px auto;
     max-width: 800px;
 }
 
+/*a div doboz*/
+.collected-card {
+    display: flex;
+    gap: 0px; /* A kártyák közötti távolság */
+    padding: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
 .card {
-    background-color: #333;
-    border: 2px solid #666;
+    background-color: #3a1834;
+    border: 2px solid #380538;
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
@@ -24,17 +40,41 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden; /* A kártya tartalma a kártyán belül maradjon */
+    width: 100px;
 }
 
 .card img {
-    max-height: 200px;
+    max-height: 150px;
     width: auto; /* Arányos szélesség */
     max-width: 100%; /* Alkalmazkodik a kártya szélességéhez */
     border-radius: 10px;
 }
 
 .card.flipped {
-    background-color: #fff;
+    background-color: #988688;
+}
+
+/*a gyűjtött kártya*/
+.card.collected {
+    width: 50px; 
+    height: 85px; /* Magasság automatikus */
+    margin: 0; /* Eltávolítja az esetleges margót */
+    padding: 5px;
+}
+
+.card.collected img {
+    max-height: 75px; 
+    width: auto; /* Arányos szélesség */
+    max-width: 100%; /* Alkalmazkodik a kártya szélességéhez */
+    border-radius: 10px; 
+    
+}
+
+
+.card.empty {
+    background-color: #3a1834; /*transparent ha teljesen átlátszóra akarom*/
+    border: 2px dashed #3a1834; 
+    /*visibility: hidden;  Ha teljesen eltüntetjük az üres kártyákat: hidden */
 }
 
 .card.matched {

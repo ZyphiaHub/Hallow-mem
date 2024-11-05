@@ -6,7 +6,8 @@ const cardImages = [
     'images/halloween5.png',
     'images/halloween6.png',
     'images/halloween7.png',
-    'images/halloween8.png'
+    'images/halloween8.png',
+    'images/halloween9.png'
 ];
 
 const gameContainer = document.getElementById('game-container');
@@ -50,14 +51,38 @@ function checkForMatch() {
     if (firstCard.dataset.image === secondCard.dataset.image) {
         firstCard.removeEventListener('click', flipCard);
         secondCard.removeEventListener('click', flipCard);
-        resetBoard();
-    } else {
+        
+        // Mozgatás a collected-card konténerbe, fél másodperc várakozás után
         setTimeout(() => {
-            firstCard.innerHTML = `<img src="images/back.png" alt="Card back">`;
-            secondCard.innerHTML = `<img src="images/back.png" alt="Card back">`;
+            moveToCollected(firstCard);
+            moveToCollected(secondCard);
             resetBoard();
-        }, 1000);
+        }, 500);
+    } else {
+        setTimeout(flipBack, 850); // Ha nincs találat, 1 mp múlva fordítsa vissza
     }
+}
+
+function flipBack() {
+    firstCard.classList.remove('flipped');
+    secondCard.classList.remove('flipped');
+    firstCard.innerHTML = `<img src="images/back.png" alt="Card back">`;
+    secondCard.innerHTML = `<img src="images/back.png" alt="Card back">`;
+    resetBoard();
+}
+
+function moveToCollected(card) {
+    const collectedContainer = document.getElementById('collected-card');
+    const clonedCard = card.cloneNode(true); // Kártya másolása
+    clonedCard.classList.remove('flipped'); // Az eredeti kártya ne maradjon felfordított állapotban
+    clonedCard.classList.add('collected'); // Hozzáadja a 'collected' osztályt
+    collectedContainer.appendChild(clonedCard); // Kártya hozzáadása a collected-card-hoz
+
+
+    // Üres hely megtartása
+    const emptyCard = document.createElement('div');
+    emptyCard.classList.add('card', 'empty'); // Az "empty" osztály biztosítja a megjelenést
+    card.replaceWith(emptyCard); 
 }
 
 function resetBoard() {
