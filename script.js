@@ -85,8 +85,8 @@ function restartGame() {
 }
 // A játék újraindítása gombbal
 document.getElementById('restart-button').addEventListener('click', () => {
-    gameContainer.innerHTML = '';
-    
+    gameContainer.innerHTML = ''; //ürít
+    document.getElementById('collected-card').innerHTML = ''; // ürít
     createCards();
     currentFlips = 0; // Visszaállítjuk a felfordítások számát
     remainingFlips = maxFlips;
