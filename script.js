@@ -18,9 +18,7 @@ const maxFlips = 50; // A maximális felfordítások száma
 let currentFlips = 0; // Jelenlegi felfordítások száma
 let remainingFlips = maxFlips; // Megmaradt felfordítások
 const flipCountDisplay = document.getElementById('flip-count');
-const rewards = ['fahéjas kalácsot', 'póklábat', 'pumpkin spice lattét', 'koporsószeget', 'fekete gyémántot', 'kopogó szellemet', 'kiscicát'];
-
-
+const rewards = ['fahéjas kalácsot', 'póklábat', 'béka nyelvet', 'üveg csillámport', 'varjúszemet', 'pumpkin spice lattét', 'koporsószeget', 'fekete gyémántot', 'kopogó szellemet', 'kiscicát'];
 
 
 
